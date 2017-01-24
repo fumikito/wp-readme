@@ -6,7 +6,7 @@ Generate readme.txt from GitHub's README.md
 
 Many WordPress plugin developers host their code on GitHub.
 But [WordPress' official repository](https://wordpress.org/plugins/) hosts
-pulugin file in SVN repos.
+plugin file in SVN repos.
 
 Readme | WordPress | GitHub
 -------|-----------|----
