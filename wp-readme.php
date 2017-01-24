@@ -1,6 +1,6 @@
 <?php
 /**
- * Generate readme.txt from Github's README.md
+ * Generate readme.txt from GitHub's README.md
  *
  * @author fumikito
  * @version 1.0.0
