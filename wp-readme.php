@@ -37,6 +37,8 @@ $string = preg_replace_callback( '/^(#+)\s+(.*)/mu', function( $match ) {
 	return "{$sep} {$match[2]} {$sep}";
 }, $string );
 
+// Replace markdown format
+$string = preg_replace( '/```/', '`', $string );
 
 //保存
 if ( ! file_put_contents( './readme.txt', $string ) ) {
