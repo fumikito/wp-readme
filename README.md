@@ -1,17 +1,17 @@
 # wp-readme
 
-Generate readme.txt from Github's README.md
+Generate readme.txt from GitHub's README.md
 
 ## Concept
 
-Many WordPress plugin developers host their code on Github.
+Many WordPress plugin developers host their code on GitHub.
 But [WordPress' official repository](https://wordpress.org/plugins/) hosts
-pulugin file in SVN repos.
+plugin file in SVN repos.
 
-Readme | WordPress | Github
+Readme | WordPress | GitHub
 -------|-----------|----
 File Extension|.txt|.md
-Format|[Markdown](https://daringfireball.net/projects/markdown/)|[Github Markdown](https://guides.github.com/features/mastering-markdown/)
+Format|[Markdown](https://daringfireball.net/projects/markdown/)|[GitHub Markdown](https://guides.github.com/features/mastering-markdown/)
 
 They are almost same, but little bit different.
 
