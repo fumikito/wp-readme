@@ -10,7 +10,7 @@
 $file = false;
 
 // Try file
-foreach ( [ './readme.md', './README.md' ] as $file_name ) {
+foreach ( array( './readme.md', './README.md' ) as $file_name ) {
 	if ( file_exists( $file_name ) ) {
 		$file = $file_name;
 		break;
@@ -38,7 +38,7 @@ $string = preg_replace_callback( '/^(#+)\s+(.*)/mu', function( $match ) {
 }, $string );
 
 // Replace markdown format
-$string = preg_replace( '/```/', '`', $string );
+$string = preg_replace( '/```/u', '`', $string );
 
 //保存
 if ( ! file_put_contents( './readme.txt', $string ) ) {
