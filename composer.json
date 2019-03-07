@@ -1,0 +1,20 @@
+{
+    "name": "fumikito/wp-readme",
+    "description": "Generate readme.txt from Github's README.md",
+    "type": "library",
+    "license": "MIT",
+    "scripts": {
+        "test": "phpunit"
+    },
+    "authors": [
+        {
+            "name": "fumikito",
+            "email": "guy@hametuha.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
