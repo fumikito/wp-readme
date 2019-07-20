@@ -47,7 +47,7 @@ This section is visible only on github and will be removed from readme.txt.
 <!-- only:wp>
 This section is visible only on WordPress.org because it's comment outed.
 Be careful with comment format.
-<only:wp -->
+</only:wp -->
 ```
 
 If you convert 1 repo to multiple delivery type(e.g. deliver the light version on WorgPress.org and the pro version on your site), you can use enviroment variable `WP_README_ENV`.
