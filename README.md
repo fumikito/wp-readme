@@ -57,7 +57,7 @@ If you convert 1 repo to multiple delivery type(e.g. deliver the light version o
 This section will be revealed only if the enviroment is 'production'.
 </only:production -->
 <!-- not:production/ -->
-This text should be removed if the environment is NOT 'production'
+This text should be removed if the environment is 'production'
 <!-- /not:production -->
 ```
 
