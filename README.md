@@ -1,8 +1,6 @@
 # WP-README
 
-Generate readme.txt from GitHub's README.md
-
-[![Build Status](https://travis-ci.org/fumikito/wp-readme.svg?branch=master)](https://travis-ci.org/fumikito/wp-readme)
+Convert a GitHub README.md into a WordPress plugin readme.txt
 
 ## Concept
 
@@ -16,10 +14,10 @@ Format|[Markdown](https://daringfireball.net/projects/markdown/)|[GitHub Markdow
 
 They are almost same, but little bit different.
 
-This small PHP scripts converts Github's `README.md` to WordPress `readme.txt`.
-You don't have to maintain 2 almost same text files.
+This small PHP script converts GitHub’s `README.md` into a WordPress `readme.txt` file.
+This allows you to maintain a single source of documentation for both GitHub and WordPress.org, eliminating the need to manage two separate files.
 
-## How To Use
+## Usage
 
 Just grab and run PHP.
 
@@ -27,15 +25,25 @@ Just grab and run PHP.
 curl -L https://raw.githubusercontent.com/fumikito/wp-readme/master/wp-readme.php | php
 ```
 
-Anoying? But best practice is automated deploy.
-For example, you can run it with [travis2wpplugin](https://github.com/miya0001/travis2wpplugin).
-Put script above in `bin.sh`. For example, see [HameSlack](https://github.com/hametuha/hameslack).
+Annoying? But the best practice is automated deployment.
+For example, you can run it with GitHub Actions.
+Fortunately, there is [a GitHub Action](https://github.com/tarosky/workflows/blob/main/actions/wp-readme/action.yml) to run this script!
+
+```yml
+jobs:
+  release:
+    steps:
+      - name: Generate readme.txt
+        uses: tarosky/workflows/actions/wp-readme@main
+```
+
+Or put the script above in `bin.sh` manually. For example, see [HameSlack]([https://github.com/hametuha/hameslack/blob/df443230683295ac2d72b224c17463f01f657929/bin/build.sh#L25-L27)).
 
 ## Advanced Usage
 
 ### Control Visiblity
 
-Surronding with special html comment, you can control visibility of section.
+By surrounding sections with special HTML comments, you can control their visibility.
 
 ```
 <!-- only:github/ -->
@@ -45,7 +53,7 @@ This section is visible only on github and will be removed from readme.txt.
 
 ```
 <!-- only:wp>
-This section is visible only on WordPress.org because it's comment outed.
+This section is visible only on WordPress.org because it's commented out.
 Be careful with comment format.
 </only:wp -->
 ```
