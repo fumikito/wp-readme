@@ -13,11 +13,16 @@
  * @param string $target_dir
  *
  * @return string
+ * @throws Exception If the directory cannot be read.
  */
 function wp_readme_find( $target_dir = '.' ) {
 	$target_dir = rtrim( $target_dir, DIRECTORY_SEPARATOR );
 	if ( is_dir( $target_dir ) ) {
-		foreach ( scandir( $target_dir ) as $file ) {
+		$files = scandir( $target_dir );
+		if ( false === $files ) {
+			throw new Exception( 'Failed to read directory: ' . $target_dir, 403 );
+		}
+		foreach ( $files as $file ) {
 			if ( in_array( $file, [ 'readme.md', 'README.md' ] ) ) {
 				return $target_dir . DIRECTORY_SEPARATOR . $file;
 			}
@@ -47,10 +52,13 @@ function wp_readme_replace( $target_file ) {
 		throw new Exception( 'readme.txt already exists and is not writable.', 403 );
 	}
 	$string = file_get_contents( $target_file );
+	if ( false === $string ) {
+		throw new Exception( 'Failed to read ' . $target_file, 403 );
+	}
 	$string = wp_readme_convert_string( $string );
 	// Save file.
-	if ( ! @file_put_contents( $new_file, $string ) ) {
-		throw new Exception( 'Failed to save readme.txt' );
+	if ( false === file_put_contents( $new_file, $string ) ) {
+		throw new Exception( 'Failed to save readme.txt', 500 );
 	}
 	
 	return true;
