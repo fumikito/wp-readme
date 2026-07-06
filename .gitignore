@@ -1,3 +1,4 @@
 /vendor/
 readme.txt
 composer.lock
+.phpunit.result.cache
