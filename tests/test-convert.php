@@ -16,6 +16,21 @@ class ConvertTest extends \PHPUnit\Framework\TestCase {
 	}
 	
 	/**
+	 * Raw HTML tags inside fenced code blocks must be escaped, or WordPress.org's
+	 * readme renderer treats them as real markup instead of a code sample.
+	 * Quotes are left untouched since they don't affect HTML tag structure.
+	 */
+	public function test_code_block_html_is_escaped() {
+		$markdown = <<<MD
+```
+<div class="foo">It's a <strong>bug</strong>.</div>
+```
+MD;
+		$expected = '<pre>&lt;div class="foo"&gt;It\'s a &lt;strong&gt;bug&lt;/strong&gt;.&lt;/div&gt;</pre>';
+		$this->assertEquals( $expected, wp_readme_convert_string( $markdown ) );
+	}
+
+	/**
 	 * Test visibility.
 	 */
 	public function test_visibility() {
