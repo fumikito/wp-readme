@@ -78,7 +78,9 @@ function wp_readme_convert_string( $string ) {
 	}, $string );
 	
 	// Format code.
-	$string = preg_replace( '/```([^\n`]*?)\n(.*?)\n```/us', '<pre>$2</pre>', $string );
+	$string = preg_replace_callback( '/```([^\n`]*?)\n(.*?)\n```/us', function ( $match ) {
+		return '<pre>' . htmlspecialchars( $match[2], ENT_QUOTES ) . '</pre>';
+	}, $string );
 	
 	return $string;
 }
